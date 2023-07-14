@@ -1,0 +1,206 @@
+[
+    {
+    "id": 1,
+    "title": "Demon Slayer Vol. 1",
+    "author": "Koyoharu Gotoge",
+    "price": 2300,
+    "stock": 100,
+    "isbn": "9784088807232",
+    "category": "manga",
+    "images": [
+        "https://imgur.com/ai4eWNw.jpg"
+    ]
+    },
+    {
+    "id": 2,
+    "title": "Demon Slayer Vol. 2",
+    "author": "Koyoharu Gotoge",
+    "price": 2300,
+    "stock": 100,
+    "isbn": "9784088807553",
+    "category": "manga",
+    "images": [
+        "https://imgur.com/ySMPCUs.jpg"
+    ]
+    },
+    {
+    "id": 3,
+    "title": "Naruto Vol. 1",
+    "author": "Masashi Kishimoto",
+    "price": 2100,
+    "stock": 150,
+    "isbn": "9789872462828",
+    "category": "manga",
+    "images": [
+        "https://imgur.com/6vTSnDH.jpg"
+    ]
+    },
+    {
+    "id": 4,
+    "title": "Naruto Vol. 2",
+    "author": "Masashi Kishimoto",
+    "price": 2100,
+    "stock": 150,
+    "isbn": "4088728785",
+    "category": "manga",
+    "images": [
+        "https://imgur.com/NgGmmuh.jpg"
+    ]
+    },
+    {
+    "id": 5,
+    "title": "Onda Viandas",
+    "author": "Coti Montesinos",
+    "price": 2590,
+    "stock": 130,
+    "isbn": "9789507689314",
+    "category": "cocina",
+    "images": [
+        "https://imgur.com/gboBCYC.jpg"
+    ]
+    },
+    {
+    "id": 6,
+    "title": "En Busca del Alfajor Perdido",
+    "author": "Facundo Calabro",
+    "price": 13200,
+    "stock": 50,
+    "isbn": "9789504963950",
+    "category": "cocina",
+    "images": [
+        "https://imgur.com/FX67ltD.jpg"
+    ]
+    },
+    {
+    "id": 7,
+    "title": "Los Juegos del Hambre",
+    "author": "Suzanne Collins",
+    "price": 7999,
+    "stock": 200,
+    "isbn": "9789878120201",
+    "category": "juvenil",
+    "images": [
+        "https://imgur.com/0Uw7CUT.jpg"
+    ]
+    },
+    {
+    "id": 8,
+    "title": "Los Juegos del Hambre - En Llamas",
+    "author": "Suzanne Collins",
+    "price": 10599,
+    "stock": 200,
+    "isbn": "9789878120218",
+    "category": "juvenil",
+    "images": [
+        "https://imgur.com/5KJKRGS.jpg"
+    ]
+    },
+    {
+    "id": 9,
+    "title": "Los Juegos del Hambre - Sinsajo",
+    "author": "Suzanne Collins",
+    "price": 10999,
+    "stock": 200,
+    "isbn": "9789878120225",
+    "category": "juvenil",
+    "images": [
+        "https://imgur.com/vMWlxc4.jpg"
+    ]
+    },
+    {
+    "id": 10,
+    "title": "El fin de la Inflacion",
+    "author": "Javier Milei",
+    "price": 6600,
+    "stock": 130,
+    "isbn": "9789504981718",
+    "category": "politica",
+    "images": [
+        "https://imgur.com/OxNgGS9.jpg"
+    ]
+    },
+    {
+    "id": 11,
+    "title": "Mi abuela es una Bruja",
+    "author": "Hernan Carreras",
+    "price": 3200,
+    "stock": 140,
+    "isbn": "9789872570880",
+    "category": "infantil",
+    "images": [
+        "https://imgur.com/EUyx7hH.jpg"
+    ]
+    },
+    {
+    "id": 12,
+    "title": "Eragon",
+    "author": "Christopher Paolini",
+    "price": 10199,
+    "stock": 80,
+    "isbn": "9788418850424",
+    "category": "ciencia ficcion",
+    "images": [
+        "https://imgur.com/MafpDqp.jpg"
+    ]
+    },
+    {
+    "id": 13,
+    "title": "Estudio en Escarlata",
+    "author": "Arthur Conan Doyle",
+    "price": 5500,
+    "stock": 95,
+    "isbn": "9789500372169",
+    "category": "policial",
+    "images": [
+        "https://imgur.com/FW4W5uu.jpg"
+    ]
+    },
+    {
+    "id": 14,
+    "title": "Mitos Nordicos",
+    "author": "Neil Gaiman",
+    "price": 6600,
+    "stock": 110,
+    "isbn": "9789507325618",
+    "category": "mitologia",
+    "images": [
+        "https://imgur.com/hUTIDqx.jpg"
+    ]
+    },
+    {
+    "id": 15,
+    "title": "Cien dias en Ucrania",
+    "author": "Elisabetta Pique",
+    "price": 7499,
+    "stock": 120,
+    "isbn": "9789500769150",
+    "category": "periodismo",
+    "images": [
+        "https://imgur.com/z6Ndbut.jpg"
+    ]
+    },
+    {
+    "id": 16,
+    "title": "Rebelion en la Granja",
+    "author": "George Orwell",
+    "price": 3800,
+    "stock": 150,
+    "isbn": "9789876133395",
+    "category": "clasicos",
+    "images": [
+        "https://imgur.com/4rRNdbf.jpg"
+    ]
+    },
+    {
+    "id": 16,
+    "title": "La Madre del Agua y otras leyendas argentinas",
+    "author": "Cristina Bajo",
+    "price": 2730,
+    "stock": 100,
+    "isbn": "9789871337552",
+    "category": "leyendas",
+    "images": [
+        "https://imgur.com/RkJrMNo.jpg"
+    ]
+    }
+]
