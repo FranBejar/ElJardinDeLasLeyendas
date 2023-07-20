@@ -4,11 +4,11 @@ import Card from './Card'
 
 const CategoryItem = ({
   item,
-  setCategorySelected
+  navigation
 }) => {
   return (
     <Pressable
-      onPress={()=>setCategorySelected(item)}
+      onPress={()=>navigation.navigate('ItemListCategory',{category: item})}
     >
       <Card additionalStyle={styles.catStyles}>
           <Text style={styles.textCategory}>{item}</Text>

@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
+import { Pressable, StyleSheet, Text, TextInput, View, useWindowDimensions } from 'react-native'
 import React, { useState } from 'react'
 import { FontAwesome } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -11,23 +11,26 @@ const Search = ({
     goBack
 }) => {
     const [keyword, setKeyword] = useState("")
+    const {width, height}  = useWindowDimensions()
 
   return (
-    <View style ={styles.container}>
+    <View style ={width>250 ?  styles.container : styles.containerSm}>
         <TextInput style ={styles.input} 
             placeholder='Buscar'
             value={keyword}
             onChangeText={setKeyword}
         />
-        <Pressable onPress={()=>onSearch(keyword)}>
-            <FontAwesome name="search" size={24} color="#3C096C"/>
-        </Pressable>
-        <Pressable onPress={()=> setKeyword("")}>
-            <FontAwesome5 name="eraser" size={24} color="#3C096C"/>
-        </Pressable>
-        <Pressable onPress={goBack}>
-            <AntDesign name="back" size={24} color="#3C096C"/>
-        </Pressable>
+        <View style={width>250 ?  styles.pressable : styles.pressableSm}>
+            <Pressable onPress={()=>onSearch(keyword)}>
+                <FontAwesome name="search" size={24} color="#3C096C"/>
+            </Pressable>
+            <Pressable onPress={()=> setKeyword("")}>
+                <FontAwesome5 name="eraser" size={24} color="#3C096C"/>
+            </Pressable>
+            <Pressable onPress={goBack}>
+                <AntDesign name="back" size={24} color="#3C096C"/>
+            </Pressable>
+        </View>
        { error ?
          <Text>
             {error}
@@ -46,6 +49,21 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         height: '10%',
         gap: 10,
+    },
+    pressable: {
+        flexDirection: 'row',
+        gap: 10
+    },
+    pressableSm: {
+        flexDirection: 'row',
+        gap: 10,
+        paddingTop: 12
+    },
+    containerSm: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '20%'
     },
     input: {
         width: 250,

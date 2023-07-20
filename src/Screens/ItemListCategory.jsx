@@ -6,20 +6,21 @@ import { colors } from '../Global/Colors'
 import Search from '../Components/Search'
 
 const ItemListCategory = ({
-  category,
-  setCategory
+  navigation,
+  route
 }) => {
 
-  const [categorySelected, setCategorySelected] = useState(category)
+  const {category} = route.params
+
   const [products, setProducts] = useState([])
   const [keyword, setKeyword] = useState("")
   const [keywordError, setKeywordError] = useState("")
 
   useEffect(()=> {
-    const productsFiltered = productsRaw.filter(product => product.category === categorySelected && product.title.toLocaleLowerCase().includes(keyword.toLowerCase()))
+    const productsFiltered = productsRaw.filter(product => product.category === category && product.title.toLocaleLowerCase().includes(keyword.toLowerCase()))
     setProducts(productsFiltered)
 
-  }, [categorySelected, keyword])
+  }, [category, keyword])
 
   const onSearch = (input) => {
     const expression = /^[a-zA-Z0-9\ ]*$/
@@ -40,12 +41,15 @@ const ItemListCategory = ({
         <Search
           onSearch={onSearch}
           error={keywordError}
-          goBack={()=> setCategory("")}
+          goBack={()=> navigation.goBack()}
         />
         <FlatList
             data = {products}
             keyExtractor={product => product.id}
-            renderItem={({item}) => ProductItem({item})}
+            renderItem={({item}) => <ProductItem 
+              item={item}
+              navigation={navigation}
+            />}
             showsVerticalScrollIndicator={false}
         />
     </View>
@@ -56,7 +60,7 @@ export default ItemListCategory
 
 const styles = StyleSheet.create({
     container: {
-        height: '90%',
+        height: '100%',
         backgroundColor: colors.clearViolet,
         alignItems: 'center'
     }
