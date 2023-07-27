@@ -1,8 +1,8 @@
 import { Pressable, StyleSheet, Text, View, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import allProducts from '../Data/products.json'
 import Card from '../Components/Card'
 import { colors } from '../Global/Colors'
+import { useSelector } from 'react-redux'
 
 const ItemDetail = ({
   navigation,
@@ -11,10 +11,11 @@ const ItemDetail = ({
 
   const {productId: idSelected} = route.params
 
+  const productSelected = useSelector(state => state.shopReducer.value.productSelectedByID)
+
   const [product, setProduct] = useState(null)
 
   useEffect(()=>{
-      const productSelected = allProducts.find(product => product.id === idSelected)
       setProduct(productSelected || {})
   },[idSelected])
 
@@ -38,7 +39,7 @@ const ItemDetail = ({
           <Card additionalStyle={styles.btnCart}>
             <Text style={styles.textBtn}>Agregar al Carrito</Text>
           </Card>
-      </Pressable>
+        </Pressable>
       </Card> : null}
       <Pressable onPress={()=> navigation.goBack()}>
         <Card additionalStyle={styles.btnBack}>

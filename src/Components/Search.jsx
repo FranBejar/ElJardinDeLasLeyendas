@@ -22,13 +22,13 @@ const Search = ({
         />
         <View style={width>250 ?  styles.pressable : styles.pressableSm}>
             <Pressable onPress={()=>onSearch(keyword)}>
-                <FontAwesome name="search" size={24} color="#3C096C"/>
+                <FontAwesome name="search" size={24} color={colors.deepViolet}/>
             </Pressable>
             <Pressable onPress={()=> setKeyword("")}>
-                <FontAwesome5 name="eraser" size={24} color="#3C096C"/>
+                <FontAwesome5 name="eraser" size={24} color={colors.deepViolet}/>
             </Pressable>
             <Pressable onPress={goBack}>
-                <AntDesign name="back" size={24} color="#3C096C"/>
+                <AntDesign name="back" size={24} color={colors.deepViolet}/>
             </Pressable>
         </View>
        { error ?

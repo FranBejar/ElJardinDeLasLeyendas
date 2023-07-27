@@ -6,7 +6,7 @@
     "price": 2300,
     "stock": 100,
     "isbn": "9784088807232",
-    "category": "manga",
+    "category": "Manga",
     "images": [
         "https://imgur.com/ai4eWNw.jpg"
     ]
@@ -18,7 +18,7 @@
     "price": 2300,
     "stock": 100,
     "isbn": "9784088807553",
-    "category": "manga",
+    "category": "Manga",
     "images": [
         "https://imgur.com/ySMPCUs.jpg"
     ]
@@ -30,7 +30,7 @@
     "price": 2100,
     "stock": 150,
     "isbn": "9789872462828",
-    "category": "manga",
+    "category": "Manga",
     "images": [
         "https://imgur.com/6vTSnDH.jpg"
     ]
@@ -42,7 +42,7 @@
     "price": 2100,
     "stock": 150,
     "isbn": "4088728785",
-    "category": "manga",
+    "category": "Manga",
     "images": [
         "https://imgur.com/NgGmmuh.jpg"
     ]
@@ -54,7 +54,7 @@
     "price": 2590,
     "stock": 130,
     "isbn": "9789507689314",
-    "category": "cocina",
+    "category": "Cocina",
     "images": [
         "https://imgur.com/gboBCYC.jpg"
     ]
@@ -66,7 +66,7 @@
     "price": 13200,
     "stock": 50,
     "isbn": "9789504963950",
-    "category": "cocina",
+    "category": "Cocina",
     "images": [
         "https://imgur.com/FX67ltD.jpg"
     ]
@@ -78,7 +78,7 @@
     "price": 7999,
     "stock": 200,
     "isbn": "9789878120201",
-    "category": "juvenil",
+    "category": "Juvenil",
     "images": [
         "https://imgur.com/0Uw7CUT.jpg"
     ]
@@ -90,7 +90,7 @@
     "price": 10599,
     "stock": 200,
     "isbn": "9789878120218",
-    "category": "juvenil",
+    "category": "Juvenil",
     "images": [
         "https://imgur.com/5KJKRGS.jpg"
     ]
@@ -102,7 +102,7 @@
     "price": 10999,
     "stock": 200,
     "isbn": "9789878120225",
-    "category": "juvenil",
+    "category": "Juvenil",
     "images": [
         "https://imgur.com/vMWlxc4.jpg"
     ]
@@ -114,7 +114,7 @@
     "price": 6600,
     "stock": 130,
     "isbn": "9789504981718",
-    "category": "politica",
+    "category": "Politica",
     "images": [
         "https://imgur.com/OxNgGS9.jpg"
     ]
@@ -126,7 +126,7 @@
     "price": 3200,
     "stock": 140,
     "isbn": "9789872570880",
-    "category": "infantil",
+    "category": "Infantil",
     "images": [
         "https://imgur.com/EUyx7hH.jpg"
     ]
@@ -138,7 +138,7 @@
     "price": 10199,
     "stock": 80,
     "isbn": "9788418850424",
-    "category": "ciencia ficcion",
+    "category": "Ciencia Ficcion",
     "images": [
         "https://imgur.com/MafpDqp.jpg"
     ]
@@ -150,7 +150,7 @@
     "price": 5500,
     "stock": 95,
     "isbn": "9789500372169",
-    "category": "policial",
+    "category": "Policial",
     "images": [
         "https://imgur.com/FW4W5uu.jpg"
     ]
@@ -162,7 +162,7 @@
     "price": 6600,
     "stock": 110,
     "isbn": "9789507325618",
-    "category": "mitologia",
+    "category": "Mitologia",
     "images": [
         "https://imgur.com/hUTIDqx.jpg"
     ]
@@ -174,7 +174,7 @@
     "price": 7499,
     "stock": 120,
     "isbn": "9789500769150",
-    "category": "periodismo",
+    "category": "Periodismo",
     "images": [
         "https://imgur.com/z6Ndbut.jpg"
     ]
@@ -186,7 +186,7 @@
     "price": 3800,
     "stock": 150,
     "isbn": "9789876133395",
-    "category": "clasicos",
+    "category": "Clasicos",
     "images": [
         "https://imgur.com/4rRNdbf.jpg"
     ]
@@ -198,7 +198,7 @@
     "price": 2730,
     "stock": 100,
     "isbn": "9789871337552",
-    "category": "leyendas",
+    "category": "Leyendas",
     "images": [
         "https://imgur.com/RkJrMNo.jpg"
     ]
