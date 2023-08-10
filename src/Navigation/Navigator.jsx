@@ -1,29 +1,37 @@
-import { StyleSheet, Text, View, SafeAreaView, StatusBar, Platform} from 'react-native'
+import { StyleSheet, View, SafeAreaView, StatusBar, Platform} from 'react-native'
 
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import ShopStack from './ShopStack';
 import CartStack from './CartStack';
 import OrderStack from './OrderStack';
+import MyProfileStack from './MyProfileStack'
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { colors } from '../Global/Colors';
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import AuthStack from './AuthStack';
+import { useSelector } from 'react-redux';
 
 const Tab = createBottomTabNavigator();
 
 const Navigator = () => {
+
+  const {email} = useSelector(state => state.userReducer.value)
+
   return (
     <SafeAreaView style = {styles.container}>
     <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={{
-          headerShown: false,
-          tabBarShowLabel: false,
-          tabBarStyle: styles.tabBar,
-        }}
-      >
+      {
+        email ?
+        <Tab.Navigator
+          screenOptions={{
+            headerShown: false,
+            tabBarShowLabel: false,
+            tabBarStyle: styles.tabBar,
+          }}
+        >
         <Tab.Screen
           name='Shop'
           component={ShopStack}
@@ -63,7 +71,22 @@ const Navigator = () => {
             }
           }}
         />
-      </Tab.Navigator>
+        <Tab.Screen
+          name='MyProfile'
+          component={MyProfileStack}
+          options={{
+            tabBarIcon: ({focused}) => {
+              return(
+                <View>
+                  <FontAwesome name="user" size={27} color={focused ? "white" : colors.logoViolet} />
+                </View>
+              )
+            }
+          }}
+        />
+        </Tab.Navigator>
+        : <AuthStack/>
+      }
     </NavigationContainer>
     </SafeAreaView>
   )

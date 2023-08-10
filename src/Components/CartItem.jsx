@@ -1,17 +1,28 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { colors } from "../Global/Colors";
 import { Entypo } from "@expo/vector-icons";
+import { useDispatch } from "react-redux";
+import { removeCartItem } from "../Features/Cart/cartSlice";
 
 const CartItem = ({ cartItem }) => {
+
+    const dispatch = useDispatch()
+
+    const onRemoveCartItem = () => {
+        dispatch(removeCartItem(cartItem.id))
+    }
+
     return (
         <View style={styles.card} onPress={() => {}}>
             <View style={styles.textContainer}>
-                <Text style={styles.text}>{cartItem.title} ({cartItem.quantity})</Text>
-                <Text style={styles.text2}>{cartItem.brand}</Text>
+                <Text style={styles.text}>{cartItem.title}</Text>
+                <Text style={styles.text2}>Cantidad: {cartItem.quantity}</Text>
                 <Text style={styles.text2}>${cartItem.price}</Text>
             </View>
-            <Entypo name="trash" size={30} color="white" />
+            <Pressable onPress={onRemoveCartItem}>
+                <Entypo name="trash" size={30} color="white" />
+            </Pressable>
         </View>
     );
 };
@@ -41,7 +52,7 @@ const styles = StyleSheet.create({
     },
     text: {
         fontFamily: "DancingScript",
-        fontSize: 20,
+        fontSize: 25,
         color: "white",
     },
     text2: {
