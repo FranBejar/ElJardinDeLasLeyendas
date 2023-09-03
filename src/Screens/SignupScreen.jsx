@@ -72,7 +72,12 @@ const SignupScreen = ({ navigation }) => {
             if(!isCorrectPassword){setErrorPassword("Contraseña no valida, minimo 6 caracteres")}else{setErrorPassword("")}
             if(!isRepeatedPasswordCorrect){setErrorConfirmPassword("No coinciden las contraseñas")}else{setErrorConfirmPassword("")}
             
-            
+            Toast.show({
+                type: "success",
+                text1: "Cuenta creada con exito, inicie sesion para continuar",
+                autoHide: true,
+                visibilityTime: 3000
+            })
 
         } catch (err) {
             Toast.show({
