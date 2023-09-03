@@ -5,6 +5,8 @@ import AddButton from "../Components/AddButton"
 import { useDispatch, useSelector } from "react-redux"
 import { useGetProfileImageQuery } from "../Services/shopServices"
 import { signOut } from "../Features/User/userSlice"
+import { deleteSession } from "../SQLite"
+import { Toast } from "react-native-toast-message/lib/src/Toast"
 
 const MyProfile = ({navigation}) => {
     
@@ -20,8 +22,27 @@ const MyProfile = ({navigation}) => {
         navigation.navigate('Image Selector')
     }
 
+    const launchLocation = async ()=>{
+        navigation.navigate('List Address')
+    }
+
+    const logout = async ()=> {
+        try {
+            const response = await deleteSession(localId)
+            dispatch(signOut())
+        } catch (error) {
+            Toast.show({
+                type: "error",
+                text1: "Hubo un error",
+                autoHide: true,
+                visibilityTime: 3000
+            })
+        }
+    }
+
     return (
         <View style={styles.container}>
+            <Toast/>
             {profileImage || cameraImage ? (
                 <Image
                     source={{uri: profileImage || cameraImage}}
@@ -36,7 +57,8 @@ const MyProfile = ({navigation}) => {
                 />
             )}
             <AddButton onPress={launchCamera} title="Cambiar Foto de Perfil"/>
-            <AddButton onPress={()=> dispatch(signOut())} title="Cerrar Sesion"/>
+            <AddButton onPress={launchLocation} title="Seleccionar Ubicacion"/>
+            <AddButton onPress={()=> {logout()}} title="Cerrar Sesion"/>
         </View>
     )
 }

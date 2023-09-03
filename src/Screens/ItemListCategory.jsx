@@ -5,6 +5,7 @@ import { colors } from '../Global/Colors'
 import Search from '../Components/Search'
 import { useSelector } from 'react-redux'
 import { useGetProductsByCategoryQuery } from '../Services/shopServices'
+import { Toast } from 'react-native-toast-message/lib/src/Toast'
 
 const ItemListCategory = ({
   navigation,
@@ -38,7 +39,12 @@ const ItemListCategory = ({
       setKeyword(input)
       setKeywordError("")
     } else {
-      console.log("Solo letras y números");
+      Toast.show({
+        type: "error",
+        text1: "Solo letras y numeros",
+        autoHide: true,
+        visibilityTime: 3000
+      })
       setKeywordError("Solo letras y números")
     }
 
@@ -46,6 +52,7 @@ const ItemListCategory = ({
 
   return (
     <View style={styles.container}>
+        <Toast/>
         <Search
           onSearch={onSearch}
           error={keywordError}

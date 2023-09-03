@@ -7,6 +7,8 @@ import { useSignInMutation } from '../Services/authServices'
 import { isAtLeastSixCharacters, isValidEmail } from '../Validations/auth'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../Features/User/userSlice'
+import { insertSession } from '../SQLite'
+import { Toast } from 'react-native-toast-message/lib/src/Toast'
 
 
 const LoginScreen = ({navigation}) => {
@@ -37,21 +39,43 @@ const LoginScreen = ({navigation}) => {
         if(!isCorrectPassword){setErrorPassword("Contraseña no valida, minimo 6 caracteres")}else{setErrorPassword("")}
     }
 
-    useEffect(() => {
-        if(resultSignIn.isSuccess){
-            dispatch(setUser({
-                email: resultSignIn.data.email,
-                idToken: resultSignIn.data.idToken,
-                localId: resultSignIn.data.localId,
-                profileImage: ""
-            }))
-        }
+    useEffect(()=> {
+        (async ()=> {
+            try {
+                if(resultSignIn.isSuccess) {
+                    const response = await insertSession({
+                        email: resultSignIn.data.email,
+                        localId: resultSignIn.data.localId,
+                        idToken: resultSignIn.data.idToken
+                    })
+
+                    dispatch(setUser({
+                        email: resultSignIn.data.email,
+                        idToken: resultSignIn.data.idToken,
+                        localId: resultSignIn.data.localId,
+                        profileImage: "",
+                        location: {
+                            latitude: "",
+                            longitude: "",
+                        }
+                    }))
+                }
+            } catch (error) {
+                Toast.show({
+                    type: "error",
+                    text1: "Hubo un error",
+                    autoHide: true,
+                    visibilityTime: 3000
+                  })
+            }
+        })()
     }, [resultSignIn])
 
   return (
     <View style={styles.main}>
         <View style={styles.container}>
             <Text style={styles.title}>Inicia Sesion</Text>
+            <Toast/>
             <InputForm 
                 label={"email"}
                 onChange={(email) => setEmail(email)}

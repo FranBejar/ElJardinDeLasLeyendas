@@ -4,11 +4,12 @@ import { colors } from "../Global/Colors";
 
 const AddButton = ({
     title = "",
-    onPress = () => {}
+    onPress = () => {},
+    additionalStyle = {}
 }) => {
     return (
         <Pressable
-            style={{ ...styles.button}}
+            style={{ ...styles.button, ...additionalStyle}}
             onPress={onPress}
         >
             <Text style={styles.text}>{title}</Text>

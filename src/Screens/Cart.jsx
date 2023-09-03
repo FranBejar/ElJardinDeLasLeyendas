@@ -1,21 +1,45 @@
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import CartItem from '../Components/CartItem'
 import { colors } from '../Global/Colors'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { usePostCartMutation } from '../Services/shopServices'
+import { setUserCart } from '../Features/Cart/cartSlice'
+import { useGetOrdersQuery } from '../Services/shopServices'
+import { removeAllCartItems } from '../Features/Cart/cartSlice'
+import { Toast } from 'react-native-toast-message/lib/src/Toast'
 
 const Cart = () => {
 
-  const {items: CartData, total, updatedAt, user} = useSelector(state => state.cartReducer.value)
+  const {items: CartData, total, updatedAt} = useSelector(state => state.cartReducer.value)
+  const user = useSelector(state => state.cartReducer.value.user)
+  const dispatch = useDispatch()
   const [triggerPostCart, result] = usePostCartMutation()
+  const {data: orders, refetch} = useGetOrdersQuery(user)
 
+  useEffect(() => {
+    if (result.isSuccess) {
+      refetch()
+      dispatch(setUserCart(user))
+      dispatch(removeAllCartItems())
+    }
+  }, [result.isSuccess, dispatch, user, refetch])
+  
   const onConfirm = () => {
-    triggerPostCart({items: CartData, total, user, updatedAt})
+    const order = { items: CartData, total, user, updatedAt }
+    triggerPostCart(order)
+    Toast.show({
+      type: "success",
+      text1: "Se ha creado tu pedido exitosamente",
+      autoHide: true,
+      visibilityTime: 3000,
+      position: "top"
+    })
   }
 
   return (
     <View style={styles.cartContainer}>
+      <Toast/>
       <FlatList
         data={CartData}
         keyExtractor={cartItem => cartItem.id}

@@ -4,6 +4,7 @@ import Card from '../Components/Card'
 import { colors } from '../Global/Colors'
 import { useDispatch, useSelector } from 'react-redux'
 import { addCartItem } from '../Features/Cart/cartSlice'
+import { Toast } from 'react-native-toast-message/lib/src/Toast'
 
 const ItemDetail = ({
   navigation,
@@ -27,6 +28,12 @@ const ItemDetail = ({
         ...product,
         quantity: 1
       }))
+      Toast.show({
+        type: "success",
+        text1: "Libro agregado al carrito",
+        autoHide: true,
+        visibilityTime: 3000
+      })
   }
 
   return (
@@ -50,6 +57,7 @@ const ItemDetail = ({
             <Text style={styles.textBtn}>Agregar al Carrito</Text>
           </Card>
         </Pressable>
+        <Toast/>
       </Card> : null}
       <Pressable onPress={()=> navigation.goBack()}>
         <Card additionalStyle={styles.btnBack}>

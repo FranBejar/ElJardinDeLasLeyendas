@@ -1,24 +1,46 @@
 import { StyleSheet, View, SafeAreaView, StatusBar, Platform} from 'react-native'
 
-import React from 'react'
+import React, {useEffect} from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import ShopStack from './ShopStack';
 import CartStack from './CartStack';
 import OrderStack from './OrderStack';
 import MyProfileStack from './MyProfileStack'
+import { getSession } from '../SQLite/index.js'
+import {setUser} from '../Features/User/userSlice.js'
+import { setUserCart } from '../Features/Cart/cartSlice';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { colors } from '../Global/Colors';
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import AuthStack from './AuthStack';
-import { useSelector } from 'react-redux';
+import { useDispatch ,useSelector } from 'react-redux';
 
 const Tab = createBottomTabNavigator();
 
 const Navigator = () => {
 
   const {email} = useSelector(state => state.userReducer.value)
+
+  const dispatch = useDispatch()
+
+  useEffect(()=> {
+    (async ()=> {
+        try {
+            const session = await getSession()
+            if (session?.rows.length) {
+                const user = session.rows._array[0]
+                dispatch(setUser(user))
+                dispatch(setUserCart(user.email))
+            }
+        } catch (error) {
+            console.log('Error al iniciar sesion');
+            console.log(error.message);
+        }
+    })()
+}, [])
+
 
   return (
     <SafeAreaView style = {styles.container}>

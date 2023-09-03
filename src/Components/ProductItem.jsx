@@ -9,7 +9,7 @@ const ProductItem = ({
   navigation
 }) => {
 
-  const {height, width} = useWindowDimensions();
+  const {width} = useWindowDimensions();
 
   const dispatch = useDispatch()
 

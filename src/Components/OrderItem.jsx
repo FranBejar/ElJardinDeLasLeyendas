@@ -1,5 +1,4 @@
 import { StyleSheet, Text, View } from "react-native";
-import { Feather } from "@expo/vector-icons";
 import React from "react";
 import { colors } from "../Global/Colors";
 
@@ -13,11 +12,18 @@ const OrderItem = ({ order }) => {
         <View style={styles.card} onPress={() => {}}>
             <View style={styles.textContainer}>
                 <Text style={styles.text}>
-                    {new Date(order.createdAt).toLocaleString()}
+                    {order.updatedAt}
                 </Text>
+                <View>
+                    {order.items.map((item) => (
+                        <View key={item.id} style={styles.itemContainer}>
+                            <Text style={styles.text2}>{item.author}</Text>
+                            <Text style={styles.text2}>{item.title}</Text>
+                        </View>
+                    ))}
+                </View>
                 <Text style={styles.text2}>${total}</Text>
             </View>
-            <Feather name="search" size={30} color="white" />
         </View>
     );
 };
@@ -27,7 +33,6 @@ export default OrderItem;
 const styles = StyleSheet.create({
     card: {
         width: 350,
-        height: 120,
         backgroundColor: colors.deepViolet,
         padding: 10,
         margin: 10,
@@ -35,15 +40,11 @@ const styles = StyleSheet.create({
         borderRightWidth: 3.5,
         borderColor: colors.borderViolet,
         borderRadius: 8,
-        flexDirection: "row",
-        justifyContent: "space-between",
         alignItems: "center",
     },
     textContainer: {
         width: "85%",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        alignItems: "flex-start",
+        alignItems: "center",
     },
     text: {
         fontFamily: "DancingScript",
@@ -52,7 +53,12 @@ const styles = StyleSheet.create({
     },
     text2: {
         fontFamily: "DancingScript",
-        fontSize: 15,
+        fontSize: 18,
         color: "white",
+    },
+    itemContainer: {
+        alignItems: "center",
+        marginTop: 5,
+        marginBottom: 5
     },
 });
